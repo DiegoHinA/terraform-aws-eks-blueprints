@@ -25,6 +25,7 @@ locals {
   default_argocd_application = {
     namespace          = local.helm_config["namespace"]
     target_revision    = "HEAD"
+    directory_recurse  = true 
     destination        = "https://kubernetes.default.svc"
     project            = "default"
     values             = {}
