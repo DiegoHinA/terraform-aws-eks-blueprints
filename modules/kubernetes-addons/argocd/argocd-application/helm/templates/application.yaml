@@ -11,6 +11,8 @@ spec:
     repoURL: {{ .Values.source.repoUrl }}
     targetRevision: {{ .Values.source.targetRevision }}
     path: {{ .Values.source.path }}
+    directory:
+      recurse: {{ .Values.source.directory.recurse }}
     helm:
       values: {{ toYaml .Values.source.helm.values | toString | indent 6 }}
   destination:
