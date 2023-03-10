@@ -53,7 +53,7 @@ resource "helm_release" "argocd_application" {
     
   set {
     name  = "source.directory.Recurse"
-    value = each.value.directory.recurse
+    value = each.value.directory_recurse
     type  = "string"
   }  
 
@@ -110,7 +110,7 @@ resource "kubectl_manifest" "argocd_kustomize_application" {
       project              = each.value.project
       sourceRepoUrl        = each.value.repo_url
       sourceTargetRevision = each.value.target_revision
-      directoryRecurse     = each.value.directory.recurse
+      directoryRecurse     = each.value.directory_recurse
       sourcePath           = each.value.path
       destinationServer    = each.value.destination
       ignoreDifferences    = lookup(each.value, "ignoreDifferences", [])
